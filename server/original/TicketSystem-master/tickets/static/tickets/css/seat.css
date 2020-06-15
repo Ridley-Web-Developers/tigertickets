@@ -1,0 +1,26 @@
+#divLegend {
+
+  text-align: center;
+  display:block;
+}
+
+#divLegend .legend-container {
+
+  margin: 0 9px;
+  display:inline-block;
+
+}
+
+#divLegend .legend-container img, #divLegend .legend-container span {
+
+  height: 25px;
+
+  vertical-align: middle;
+
+}
+
+#divLegend .Legend {
+
+  margin-left: 3px;
+
+}

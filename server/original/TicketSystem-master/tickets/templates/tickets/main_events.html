@@ -1,0 +1,16 @@
+{% extends "tickets/base.html" %}
+
+{% load static %}
+
+{%block content%}
+
+{%block a%}
+
+{%endblock%}
+<form method="POST" action='/tickets/{{site}}'> {%csrf_token%}
+    {{form.as_p}}
+    <button type='submit'>
+        Next
+    </button>
+</form>
+{%endblock%}

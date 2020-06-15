@@ -1,0 +1,52 @@
+{%extends "tickets/base.html"%}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col">
+            <br>
+            <h1 class="mt-2 text-dark">Purchase a Ticket</h1>
+            <hr class="mt-1 mb-4">
+            <div class="content-background">
+                <br>
+                <div style="text-align:center;">
+                    <h2>Please Fill Out the Form</h2>
+                </div>
+                <br>
+                <div class="displayerBoxes txt-center" style="overflow-x:auto;">
+                    <table class="Displaytable w3ls-table" width="100%">
+                        <tr>
+                            <td><b>Event</b></td>
+                            <td><b>Date</b></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{event_name}}
+                            </td>
+                            <td>
+                                {{event_start_date}} - {{event_end_date}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <p style="display: inline-block"></p>
+                <form method="POST" action='purchase'>
+                    {%csrf_token%}
+                    {{form|crispy}}
+                    <div style="text-align: center;">
+                        <button type='submit' class="btn btn-success">
+                            Next
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% csrf_token %}
+{% endblock %}
+

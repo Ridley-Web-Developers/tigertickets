@@ -1,0 +1,40 @@
+{% extends 'tickets/base.html' %}
+{% block title %}All Events{% endblock %}
+{% block content %}
+
+{% load static %}
+<script src="{% static 'tickets/js/event_list.js'%}"></script>
+<script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+<link rel="stylesheet" href="{% static 'tickets/css/event_list.css' %}">
+<br style="line-height:60px;">
+<div class="content-background" style="width:90%; max-width: 90%;">
+    <div class="content-container">
+        <br>
+        <div style="text-align: center;"><h1 style="display: inline-block;">🐅</h1><h5 style="display: inline-block;">
+            &nbsp;...</h5>
+            <h1 style="display: inline-block;">&nbsp;All Events</h1></div>
+        <br>
+        <div class="page">
+            <div class="toc">
+                {% for event in event_list %}
+                <div class="toc-entry">
+                    <div class="et">
+                        <strong style="font-family: 'Coming Soon', cursive;"> {{ event.date|date:"Y-m-d" }}</strong>
+                        <div class="entry-content">
+                            <a href="/tickets/events/{{event.id}}"
+                               class="image-title" style="font-family: 'Coming Soon', cursive;font-size: 18px;">{{event.title}}</a>
+                            <a href="/tickets/events/{{event.id}}" class="lazyload small-image"
+                               data-src="{{event.preview_image.url}}"
+                               style=""></a>
+                        </div>
+                        <script>lazyload();</script>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<br style="line-height:72px;">
+
+{% endblock %}

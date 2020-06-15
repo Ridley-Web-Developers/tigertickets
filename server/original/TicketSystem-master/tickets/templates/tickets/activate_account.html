@@ -1,0 +1,16 @@
+<div style="text-align: center;">
+    <br>
+    <h1>Verify Your Email</h1>
+    <br>
+    <hr>
+    <p>Hi {{ user.username }}, please verify your email to secure your account.</p>
+    <br>
+    <div style="text-align: center;">
+        <a href="{% autoescape off %} http://{{ domain }}{% url 'tickets:activate' uidb64=uid token=token %} {% endautoescape %}">
+            <button style="background-color: #C96214;  border: none;  color: white;
+  padding: 15px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;  cursor: pointer;   border-radius: 10px;">
+                Verify Now
+            </button>
+        </a>
+    </div>
+</div>

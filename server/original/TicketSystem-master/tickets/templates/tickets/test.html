@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+
+        .rectangle {
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            width: 18px;
+            height: 18px;
+            margin: 0 auto;
+            vertical-align: middle;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+<div id="select-seats-container">
+    <div id="divSeatMap">
+        <div class="Seating-Screen" style="width:925px;">
+            <div style="height: 375px;">
+                <div class="rectangle"
+                     style="width:100%;height:10px;position:relative;background-color: #555;">
+                </div>
+                <div class="Seating-Container" style="width: 975px; height: 425px; visibility: visible;">
+                    <!-- Left Row Name Start-->
+                    <!--                    <div class="Seating-RowLabelContainer Seating-RowLabelContainer-Left">-->
+                    <!--                        <table style="position:absolute;top:0;height:100%;" cellpadding="0" cellspacing="0">-->
+                    <!--                            <tbody>-->
+                    <!--                            {% for i in rows %}-->
+                    <!--                            <tr style="line-height: 25px;">-->
+                    <!--                                <td style="background-color:white;">{{i}}</td>-->
+                    <!--                            </tr>-->
+                    <!--                            {% endfor %}-->
+                    <!--                            </tbody>-->
+                    <!--                        </table>-->
+                    <!--                    </div>-->
+                    <!-- Left Row Name End-->
+                    <!-- Seat Table Start-->
+                    <div class="Seating-Theatre" style="width:925px;height:425px;">
+                        <div id="seats-left">
+
+                            <div class="flex-container">
+                                <div class="rectangle"><p style="font-size: 10px">N26</p></div>
+                            </div>
+                            <!--                            <div class="rectangle">3</div>-->
+                            <!--                            <div class="rectangle">4</div>-->
+                        </div>
+                    </div>
+                    <!-- Seat Table End-->
+                    <!-- Right Row Name Start-->
+                    <!--                    <div class="Seating-RowLabelContainer Seating-RowLabelContainer-Right">-->
+                    <!--                        <table style="position:absolute;top:0;height:100%;" cellpadding="0" cellspacing="0">-->
+                    <!--                            <tbody>-->
+                    <!--                            {% for i in rows %}-->
+                    <!--                            <tr style="line-height: 25px;">-->
+                    <!--                                <td style="background-color:white;">{{i}}</td>-->
+                    <!--                            </tr>-->
+                    <!--                            {% endfor %}-->
+                    <!--                            </tbody>-->
+                    <!--                        </table>-->
+                    <!--                    </div>-->
+                    <!-- Right Row Name End-->
+                </div>
+            </div>
+        </div>
+        <div id="divLegend">
+        <span class="legend-container">
+            <img src="" alt="">
+            <span class="Legend">可選</span>
+        </span>
+        </div>
+
+    </div>
+
+
+    <table>
+        {% for i in data %}
+        <tr>
+            <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

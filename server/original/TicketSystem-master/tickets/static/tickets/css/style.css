@@ -1,0 +1,123 @@
+body {
+    background-image: url("../img/mainbackground.png");
+    /*background-color: #eaeaea;*/
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#top-bar {
+    background-color: #333;
+}
+
+.nav-link {
+    color: #F1F1F1 !important;
+}
+
+.content-background {
+    background-color: rgba(220, 220, 220, 0.9);
+    
+    position: relative;
+    left: 5%;
+    right: 5%;
+    padding: 15px;
+    width: 90%;
+}
+
+.map-outer {
+    text-align: center;
+    max-width: max-content;
+}
+
+.google-map-canvas {
+    display: inline;
+    overflow: hidden;
+    background: none !important;
+    max-width: max-content;
+}
+
+#google-map-iframe {
+    width: 100% !important;
+    height: 320px;
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
+    border: 0;
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0;
+    border: 0;
+}
+
+p {
+    color: #333333;
+}
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: max-content;
+}
+
+#image-hover-parent {
+    text-align: center;
+    max-width: 100%;
+}
+
+#image-hover {
+    position: center;
+    max-width: 100%;
+    width: auto;
+    align-content: center;
+    table-layout: fixed;
+}
+
+.image-hover-zoom {
+    max-width: 100%;
+    width: 120px;
+    height: 80px;
+}
+
+td {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+#seating-chart-image {
+    max-width: 100%;
+    width: 500px;
+}
+
+#popUp {
+    background-color: rgba(0, 250, 0, 1);
+    width: 80%;
+    padding: 50px;
+    margin: 20px;
+    text-align: center;
+    font-size: 32px;
+}
+
+@media only screen and (max-width: 768px) {
+    #google-map-iframe {
+        width: 100%;
+    }
+}
+

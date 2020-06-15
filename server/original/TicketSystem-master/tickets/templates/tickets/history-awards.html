@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{%extends "tickets/base.html"%}
+{% load static %}
+<html lang="en">
+
+<body>
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col">
+            <br>
+<!--            <div style="position: static">-->
+<!--                <h1 class="mt-2 text-dark">{{heading_theatre}}</h1>-->
+<!--                <hr class="mt-1 mb-4 ">-->
+<!--                <div class="content-background">-->
+<!--                    &lt;!&ndash;                    <p>&emsp;&emsp;&emsp;Ridley College, a co-educational independent school with a student body of 580, was well established in 1989. Athough the programs in music and drama had grown over the years, there were no suitable facilities on campus. The plans for a new Arts and Sciences building provided the opportunity to create a theatre as a wing of the new structure in a highly economic way. This 350 seat semi-thrust theatre provides a venue suitable for both music and drama, as well as use by the local community.</p>&ndash;&gt;-->
+<!--                    <div id="image-hover-parent">-->
+<!--                        <table id="image-hover">-->
+<!--                            <tr>-->
+<!--                                <td>-->
+<!--                                    <img class="image-hover-zoom" src="{% static 'tickets/img/theatre photos/1.jpg' %}"-->
+<!--                                         alt="Image">-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <img class="image-hover-zoom" src="{% static 'tickets/img/theatre photos/2.jpg' %}"-->
+<!--                                         alt="Image">-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <img class="image-hover-zoom" src="{% static 'tickets/img/theatre photos/3.jpg' %}"-->
+<!--                                         alt="Image">-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <td>-->
+<!--                                    <img class="image-hover-zoom" src="{% static 'tickets/img/theatre photos/4.jpg' %}"-->
+<!--                                         alt="Image">-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <img class="image-hover-zoom" src="{% static 'tickets/img/theatre photos/5.jpg' %}"-->
+<!--                                         alt="Image">-->
+<!--                                </td>-->
+<!--                                <td>-->
+<!--                                    <img class="image-hover-zoom" src="{% static 'tickets/img/theatre photos/6.jpg' %}"-->
+<!--                                         alt="Image">-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </table>-->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--                    <div style="text-align: center">-->
+<!--                        <img src="{% static 'tickets/img/mandeville_theatre_seating.png' %}" id="seating-chart-image"-->
+<!--                             alt="Image">-->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--                    <p><a href="https://www.facebook.com/pages/Mandeville-Theatre-Ridley-College/221631128262588"><b>Facebook</b></a>-->
+<!--                    </p>-->
+<!--                </div>-->
+<!--                <br>-->
+<!--            </div>-->
+
+            <br class="mt-5 mb-4 ">
+
+            <div style="position: static">
+
+
+                <div style="position: static">
+                    <h1 class="mt-2 text-dark">{{heading_location}}</h1>
+                    <br>
+                    <div class="content-background">
+                        <p><b>Address: &nbsp;</b>2 Ridley Rd, St. Catharines, ON L2R 7C3</p>
+                        <p><b>Province: &nbsp;</b>Ontario</p>
+                        <p><b>Phone: &nbsp;</b>(905) 684-1889</p>
+                        <div class="map-outer">
+                            <div class="google-map-canvas">
+                                <br>
+                                <iframe id="google-map-iframe"
+                                        src="https://maps.google.com/maps?q=Ridley%20College%20Mandeville%20Theatre&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <hr class="mt-0 mb-4 ">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+</body>
+</html>

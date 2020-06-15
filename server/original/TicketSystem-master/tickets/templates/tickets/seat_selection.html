@@ -1,0 +1,354 @@
+{% extends "tickets/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% load static %}
+
+<style>
+    body {
+        background-color: #eaeaea;
+        background-image: None;
+    }
+</style>
+
+
+<script type="text/javascript">
+    if (performance.navigation.type == 2) {
+        location.reload(true);
+    }
+    var i = 0;
+
+
+    function myfunction(id) {
+        let x = document.getElementById(id).checked;
+        if (x) { i++; }
+        else { i--; }
+        document.getElementById("text").innerHTML = "You have selected " + i + " Seats ";
+        return i;
+    }
+    function func2() {
+        if (i === 0) {
+            alert("You must select at least 1 seat");
+            returnToPreviousPage();
+        }
+        else if (i > 50) {
+            alert("You can only select up to 50 seats.");
+            returnToPreviousPage();
+        }
+        else {
+            document.forms['form'].submit();
+        }
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+<style>
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-size: 16px;
+    }
+
+    .seats {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+
+    }
+
+    .seat {
+        /* display: flex; */
+        flex: 0 0 14.28571428571429%;
+        padding: 2.5px;
+        position: relative;
+
+    }
+
+    /* .seat:nth-child(3) {
+            margin-right: 14.28571428571429%;
+        } */
+
+    .seat input[type=checkbox] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .blank input[type=checkbox] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .seat input[type=checkbox]:checked+label {
+        background: rgba(232, 119, 34, 0.95);
+        -webkit-animation-name: rubberBand;
+        animation-name: rubberBand;
+        animation-duration: 300ms;
+        animation-fill-mode: both;
+    }
+
+    .blank input[type=checkbox]:disabled+label {
+        background: #dddddd;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+
+    .blank input[type=checkbox]:disabled+label:after {
+        content: "X";
+        text-indent: 0;
+        position: absolute;
+        top: 4px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .blank input[type=checkbox]:disabled+label:hover {
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+
+
+    .seat input[type=checkbox]:disabled+label {
+        display: block;
+        position: relative;
+        width: 30px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding: 4px 0;
+        background: lightgray;
+        border-radius: 5px;
+    }
+
+    .seat input[type=checkbox]:disabled+label:hover {
+        box-shadow: none;
+        cursor: not-allowed;
+    }
+
+    .seat label {
+        display: block;
+        position: relative;
+        width: 30px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding: 4px 0;
+        /* background:#dfe0da; */
+        background: #a5ce54;
+        border-radius: 5px;
+        animation-duration: 300ms;
+        animation-fill-mode: both;
+    }
+
+    .blank label {
+        display: block;
+        position: relative;
+        width: 30px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.5rem;
+        padding: 4px 0;
+        background: lightgrey;
+        /* background:white; */
+        border-radius: 5px;
+        animation-duration: 300ms;
+        animation-fill-mode: both;
+    }
+
+    .seat label:before {
+        content: "";
+        position: absolute;
+        width: 75%;
+        height: 75%;
+        top: 1px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        background: rgba(255, 255, 255, 0.4);
+
+        /* background: dfe0da; */
+        border-radius: 3px;
+    }
+
+    .seat label:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0px 2px #5C6AFF;
+    }
+
+    @-webkit-keyframes rubberBand {
+        0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+
+        30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+        }
+
+        40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+        }
+
+        50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+        }
+
+        65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+        }
+
+        75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+        }
+
+        100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    @keyframes rubberBand {
+        0% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+
+        30% {
+            -webkit-transform: scale3d(1.25, 0.75, 1);
+            transform: scale3d(1.25, 0.75, 1);
+        }
+
+        40% {
+            -webkit-transform: scale3d(0.75, 1.25, 1);
+            transform: scale3d(0.75, 1.25, 1);
+        }
+
+        50% {
+            -webkit-transform: scale3d(1.15, 0.85, 1);
+            transform: scale3d(1.15, 0.85, 1);
+        }
+
+        65% {
+            -webkit-transform: scale3d(0.95, 1.05, 1);
+            transform: scale3d(0.95, 1.05, 1);
+        }
+
+        75% {
+            -webkit-transform: scale3d(1.05, 0.95, 1);
+            transform: scale3d(1.05, 0.95, 1);
+        }
+
+        100% {
+            -webkit-transform: scale3d(1, 1, 1);
+            transform: scale3d(1, 1, 1);
+        }
+    }
+
+    .rubberBand {
+        -webkit-animation-name: rubberBand;
+        animation-name: rubberBand;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .msg {
+        color: red;
+    }
+
+    input.checkbox {
+        zoom: 2;
+    }
+
+    input.occupied {
+        background-color: orange;
+        zoom: 2;
+    }
+
+    .rectangle {
+        height: 46px;
+        width: 300px;
+        background-color: #FFFFFF;
+        border: 2px solid #41424C;
+    }
+</style>
+
+<body onload="onLoaderFunc()">
+    <div class="container">
+        <div class="wrapper">
+            <h1>Theatre Seat Selection</h1>
+            <h5>Event: {{SessionID}} ({{week}})</h5>
+            <br>
+            {%if messages%}
+            <ul class="messages%">
+                {%for message in messages%}
+                <li class="msg" {%if message.tags%} class="{{message.tags}}" {%endif%}>{{message}}</li>
+                </style>
+                {%endfor%}
+            </ul>
+            {%endif%}
+
+            <form name='form' method="post" action="/tickets/seat_selection/{{session}}">{% csrf_token %}
+                <br>
+                <div class='rectangle' style=" background-color: #eaeaea; border: 0px;text-align: center; vertical-align: middle;margin: auto; height: 50px; width: 500px;"><span><table><tr><td style='width: 100px'><div class='rectangle' style='margin: auto;background-color: #a5ce54;width: 28px;height: 28px;'></div></td><td style='width: 100px'><div class='rectangle' style='margin: auto;background-color: #ff770a;width: 28px;height: 28px;'></div></td><td style='width: 100px'><div class='rectangle' style='margin: auto;background-color: lightgrey;width: 28px;height: 28px;'></td><td style='width: 100px'><div class='rectangle' style='margin: auto;background-color: #dfe0da;width: 28px;height: 28px;'>X</div></td></tr><tr><td>Available</td><td>Selected</td><td>Occupied</td><td>Unavailable</td></tr></table></span>
+                                                       </div>
+                 <br>
+                <table>
+                    <div class="stage rectangle" style="text-align: center; vertical-align: middle;margin: auto ;">
+                        <h2>Stage</h2>
+                    </div>
+                    <br>
+                    {%for row,column in array%}
+                    <tr>
+                        <!-- <td>{{row}}</td> -->
+                        {%for i in column%}
+                        {%if i == num%}
+                        <td><input type="checkbox" class="hidden checkbox"></td>
+                        {%elif i == num2%}
+                        <td class="blank"><input type="checkbox" disabled>
+                            <label for={{row}}{{i}}>{{row}}{{i}}</label>
+                        </td>
+                        {%elif row|add:i in Occupied%}
+                        <td class="seat"><input type="checkbox" class="seat" disabled>
+                            <label for={{row}}{{i}}>{{row}}{{i}}</label>
+                        </td>
+                        {%else%}
+                        <td class="seat"><input id={{row}}{{i}} type="checkbox" class="seat" value={{row}}{{i}}
+                                name="seat" onclick="myfunction(id)">
+                            <label for={{row}}{{i}}>{{row}}{{i}}</label>
+                        </td>
+                        {%endif%}
+                        {%endfor%}
+                    </tr>
+                    {%endfor%}
+
+                </table>
+                <br>
+                <h3 id='text'>
+                    You have selected 0 seats
+                </h3>
+
+                <div style="text-align: center;">
+                    <button type='button' class="btn btn-success" onclick="func2()">Submit</button>
+                </div>
+            </form>
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+{% endblock %}
