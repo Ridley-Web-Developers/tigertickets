@@ -120,7 +120,19 @@ def search_text(text, phrase=False, start_date=None, end_date=None):
             {"score": {"$meta": "textScore"}})
     # TODO: Finish implementation
     else:  # if start_date is not specified, search before, vice versa
-        pass
+        date_filter = []
+        if start_date is not None:
+            date_filter.append({
+                'main_events.end_date': {
+                    '$lt': end_date
+                }})
+        if end_date is not None:
+            date_filter.append({'main_events.start_date': {
+                '$gt': start_date
+            }})
+        events.find({
+            '$or': date_filter
+        })
 
 
 # TODO: Finish implementation

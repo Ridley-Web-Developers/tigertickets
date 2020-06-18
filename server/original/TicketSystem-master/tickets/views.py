@@ -39,48 +39,6 @@ from rest_framework import status
 from django.http import Http404
 
 
-class seatList(APIView):
-
-    def get_object(self, pk):
-        try:
-            return Seat.objects.get(pk=pk)
-        except Seat.DoesNotExist:
-            raise Http404
-
-    def get(self, request):
-        seats = Seat.objects.all()
-        qrcode = self.request.query_params.get('id', None)
-        if id is not None:
-            seats = seats.filter(Qr_String=qrcode)
-            serializer = SeatSerializer(seats, many=True)
-            return Response(serializer.data)
-
-    def put(self, request):
-        seats = Seat.objects.all()
-        qrcode = self.request.query_params.get('id', None)
-        if id is not None:
-            seats.filter(Qr_String=qrcode).update(Scanned=True)
-            return Response()
-
-    #     serializer = SeatSerializer(seats, data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    # def put(self, request, pk):
-    #     saved_article = get_object_or_404(Seat.objects.all(), pk=pk)
-    #     data = request.data.get('SessionID')
-    #     serializer = SeatSerializer(instance=saved_article, data=data, partial=True)
-    #     if serializer.is_valid(raise_exception=True):
-    #         article_saved = serializer.save()
-    #     return Response({"success": "Article '{}' updated successfully".format(article_saved.title)})
-    # seats = Seat.objects.all()
-    # serializer = SeatSerializer(seats, many=True)
-    # return Response(serializer.data)
-    # pass
-
-
 def purchase(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -449,33 +407,3 @@ def parser(string):
         col = int(col)
         b.append((row, col))
     return b
-
-
-# 'Roald Dahl’s Matilda the Musical, 2020-02-27 - Thursday, A,14'
-def parse(string):  # Change this
-    parse_list = [str(i.strip()) for i in string.split(',')]
-    if parse_list[1] == "2020-02-27 - Thursday":
-        return [15] + [parse_list[2]] + [int(parse_list[-1])]
-    elif parse_list[1] == "2020-02-28 - Friday":
-        return [16] + [parse_list[2]] + [int(parse_list[-1])]
-    else:
-        return [17] + [parse_list[2]] + [int(parse_list[-1])]
-
-
-def linearSearch(arr, item):
-    for i in range(len(arr)):
-        if item == arr[i]:
-            return i
-
-
-def binarySearch(arr, l, r, x):
-    if r >= l:
-        mid = l + (r - l) // 2
-        if arr[mid] == x:
-            return mid
-        elif arr[mid] > x:
-            return binarySearch(arr, l, mid - 1, x)
-        else:
-            return binarySearch(arr, mid + 1, r, x)
-    else:
-        return -1
