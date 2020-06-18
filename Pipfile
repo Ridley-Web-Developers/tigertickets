@@ -15,6 +15,7 @@ flask-bcrypt = "*"
 flask-cors = "*"
 flask-qrcode = "*"
 dnspython = "*"
+flask-jwt-extended = "*"
 
 [requires]
 python_version = "3.7"
