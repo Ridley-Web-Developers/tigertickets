@@ -13,33 +13,46 @@ const routes = [
     {
         path: '/about',
         name: 'About',
-        component: () => import('../views/About.vue')
+        component: () => import('../views/about/Main.vue')
     },
     {
-        path: '/about/developers',
-        name: 'Developers',
-        component: () => import('../views/Developer.vue')
+        path: '/about/team',
+        name: 'Team',
+        component: () => import('../views/about/Team.vue')
     },
     {
-        path: '/theatre',
+        path: '/about/projects',
+        name: 'Projects',
+        component: () => import('../views/about/Projects.vue')
+    },
+    {
+        path: '/about/theatre',
         name: 'Mandeville Theatre',
-        component: () => import('../views/Theatre.vue')
+        component: () => import('../views/about/Theatre.vue')
     },
     {
         path: '/events',
         name: 'Events',
-        component: () => import('../views/Events.vue')
+        component: () => import('../views/events/Main.vue')
     },
     {
         path: '/events/:id',
         name: 'Event',
-        component: () => import('../views/Event.vue')
+        component: () => import('../views/events/Event.vue')
     },
     {
         path: '/events/all',
         name: 'All Events',
-        component: () => import('../views/All Events.vue')
+        component: () => import('../views/events/All Events.vue')
+    },
+    {
+        path: '*',
+        redirect:
+            {
+                name: 'Home'
+            }
     }
+
 ]
 
 const router = new VueRouter({

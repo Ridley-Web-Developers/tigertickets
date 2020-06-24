@@ -236,7 +236,7 @@ def email(request, session, seats):
             'site': 'email/' + session + '/' + seats,
 
         }
-        return render(request, "tickets/email.html", context)
+        return render(request, "tickets/seat_email.html", context)
     elif request.user.is_authenticated and not request.user.is_staff:
         if request.method == "POST":
             form = EmailForm2(request.POST or None)
@@ -322,7 +322,7 @@ def email(request, session, seats):
             'site': 'email/' + session + '/' + seats,
 
         }
-        return render(request, "tickets/email.html", context)
+        return render(request, "tickets/seat_email.html", context)
     else:
         return HttpResponseRedirect(reverse('tickets:home'))
 
@@ -348,7 +348,7 @@ def modify(request):
             'form': form,
             'site': 'modify',
         }
-        return render(request, "tickets/email.html", context)
+        return render(request, "tickets/seat_email.html", context)
     elif request.user.is_authenticated and not request.user.is_staff:
         return HttpResponseRedirect('seat_list/' + request.user.email)
     else:

@@ -1,5 +1,5 @@
 import os
-import sys
+import uuid
 
 from flask import Flask, request, jsonify, session, render_template, render_template_string
 from flask_bcrypt import Bcrypt
@@ -27,10 +27,14 @@ mongo = PyMongo(app)
 qrcode = QRcode(app)
 
 
+def generate_qrcode():
+    return uuid.uuid1()
+
+
 @app.route('/qrcode', methods=['GET'])
 def qr_code():
-    qr_string = qrcode('Hello', error_correction='H')
-    rendered = render_template('email.html', qr_string=qr_string)
+    qr_string = qrcode(generate_qrcode(), box_size=8, error_correction='M')
+    rendered = render_template('seat_email.html', qr_string=qr_string)
     return rendered
 
 
