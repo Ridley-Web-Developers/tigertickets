@@ -1,4 +1,5 @@
 import os
+import sys
 import uuid
 
 from flask import Flask, request, jsonify, session, render_template, render_template_string
@@ -9,7 +10,7 @@ from flask_pymongo import PyMongo
 from flask_qrcode import QRcode
 from flask_jwt_extended import JWTManager, create_access_token
 
-# sys.path.append(os.path.abspath('../'))
+sys.path.append(os.path.abspath('../'))
 from server.config import *
 from server.models.events import *
 

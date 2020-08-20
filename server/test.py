@@ -1,6 +1,7 @@
 import pymongo
 
-client = pymongo.MongoClient('mongodb+srv://thomaslin:Tiger7252@tiger-tickets-n3wt7.mongodb.net/tigertickets?retryWrites=true&w=majority')
+client = pymongo.MongoClient(
+    'mongodb+srv://thomaslin:Tiger7252@tiger-tickets-n3wt7.mongodb.net/tigertickets?retryWrites=true&w=majority')
 db = client.tigertickets
 # seat = {
 #     "A": [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, -1, -1, -1, -1, -1,
