@@ -11,6 +11,7 @@ from flask_qrcode import QRcode
 from flask_jwt_extended import JWTManager, create_access_token
 
 sys.path.append(os.path.abspath('../'))
+# sys.path.append(os.path.abspath(''))  # use this if you are running the program via python server/app.py
 from server.config import *
 from server.models.events import *
 

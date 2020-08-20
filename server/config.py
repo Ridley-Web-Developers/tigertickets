@@ -6,7 +6,7 @@ class Config:
     MAIL_USERNAME = 'mand_tickets@ridleycollege.com'
     MAIL_PASSWORD = 'Student2019!'
     MAIL_DEFAULT_SENDER = 'mand_tickets@ridleycollege.com'
-    MONGO_URI = 'mongodb+srv://thomaslin:Tiger7252@tiger-tickets-n3wt7.mongodb.net/tigertickets?retryWrites=true&w=majority'
+    MONGO_URI = 'mongodb+srv://tigers:Student!@tiger-tickets-n3wt7.mongodb.net/tigertickets?retryWrites=true&w=majority'
 
 
 class ProductionConfig(Config):
