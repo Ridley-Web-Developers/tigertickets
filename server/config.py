@@ -7,6 +7,7 @@ class Config:
     MAIL_PASSWORD = 'Student2019!'
     MAIL_DEFAULT_SENDER = 'mand_tickets@ridleycollege.com'
     MONGO_URI = 'mongodb+srv://tigers:Student!@tiger-tickets-n3wt7.mongodb.net/tigertickets?retryWrites=true&w=majority'
+    tlsInsecure = True
 
 
 class ProductionConfig(Config):
